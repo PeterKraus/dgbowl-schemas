@@ -175,8 +175,15 @@ XRDTraceFileTypes = Union[
 
 class ExtractorFactory(BaseModel):
     extractor: Union[
-        EClab_mpr,
-        EClab_mpt,
+        DummyFileTypes,
+        FlowDataFileTypes,
+        ElectroChemFileTypes,
+        ChromDataFileTypes,
+        ChromTraceFileTypes,
+        MassTraceFileTypes,
+        QFTraceFileTypes,
+        XPSTraceFileTypes,
+        XRDTraceFileTypes,
     ] = Field(..., discriminator="filetype")
 
     @validator("extractor", always=True)
